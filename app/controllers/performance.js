@@ -76,7 +76,7 @@ function updateStatuses() {
             if (!reservationNumbers.hasOwnProperty(performance.get('_id').toString())) {
                 reservationNumbers[performance.get('_id').toString()] = 0;
             }
-            // TODO anyで逃げているが、型定義をちゃんとかけばもっとよく書ける
+            // todo anyで逃げているが、型定義をちゃんとかけばもっとよく書ける
             const status = performance.getSeatStatus(reservationNumbers[performance.get('_id').toString()]);
             performanceStatusesModel.setStatus(performance._id.toString(), status);
         });

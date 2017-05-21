@@ -81,7 +81,7 @@ export async function updateStatuses() {
             reservationNumbers[performance.get('_id').toString()] = 0;
         }
 
-        // TODO anyで逃げているが、型定義をちゃんとかけばもっとよく書ける
+        // todo anyで逃げているが、型定義をちゃんとかけばもっとよく書ける
         const status = (<any>performance).getSeatStatus(reservationNumbers[performance.get('_id').toString()]);
         performanceStatusesModel.setStatus(performance._id.toString(), status);
     });
