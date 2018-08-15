@@ -26,7 +26,7 @@
         "dateFormat": "ddd MMM Do YYYY",
         "outputSourceFiles": true,
         "outputSourcePath": true,
-        "systemName": "元祖興行パッケージチケット予約システムAPIアプリケーション",
+        "systemName": "Chevre Jobs Application",
         "footer": "",
         "navType": "vertical",
         "theme": "cosmo",
