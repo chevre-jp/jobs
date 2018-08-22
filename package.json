@@ -9,7 +9,7 @@
     }
   ],
   "dependencies": {
-    "@chevre/domain": "^10.0.0-alpha.1",
+    "@chevre/domain": "^10.0.0-alpha.2",
     "debug": "^3.1.0",
     "moment": "^2.22.2"
   },
