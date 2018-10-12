@@ -26,7 +26,7 @@ connectMongo().then(() => {
 
             try {
                 debug('reexporting tasks...');
-                await transactionRepo.reexportTasks(RETRY_INTERVAL_MINUTES);
+                await transactionRepo.reexportTasks({ intervalInMinutes: RETRY_INTERVAL_MINUTES });
             } catch (error) {
                 console.error(error);
             }

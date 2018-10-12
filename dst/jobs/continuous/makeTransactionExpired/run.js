@@ -27,7 +27,7 @@ connectMongo_1.connectMongo().then(() => {
         count += 1;
         try {
             debug('transaction expiring...');
-            yield transactionRepo.makeExpired({ expires: new Date() });
+            yield transactionRepo.makeExpired();
         }
         catch (error) {
             console.error(error);

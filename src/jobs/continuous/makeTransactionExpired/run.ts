@@ -25,7 +25,7 @@ connectMongo().then(() => {
 
             try {
                 debug('transaction expiring...');
-                await transactionRepo.makeExpired({ expires: new Date() });
+                await transactionRepo.makeExpired();
             } catch (error) {
                 console.error(error);
             }
