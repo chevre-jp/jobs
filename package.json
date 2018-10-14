@@ -9,7 +9,7 @@
     }
   ],
   "dependencies": {
-    "@chevre/domain": "^1.0.0-alpha.18",
+    "@chevre/domain": "^1.0.0-alpha.19",
     "debug": "^3.2.6",
     "moment": "^2.22.2"
   },
@@ -28,7 +28,7 @@
     "power-assert": "^1.6.1",
     "rimraf": "^2.6.2",
     "sinon": "^4.5.0",
-    "snyk": "^1.103.3",
+    "snyk": "^1.103.4",
     "ts-node": "^6.1.0",
     "tslint": "^5.10.0",
     "tslint-microsoft-contrib": "^5.2.1",
