@@ -35,10 +35,23 @@ function main() {
         const ticketTypeGroup = ticketTypeGroups[Math.floor(Math.random() * ticketTypeGroups.length)];
         const duration = Math.floor((Math.random() * 90) + 90);
         const delay = Math.floor(Math.random() * 780);
-        const doorTime = moment(`${moment().add(7, 'days').format('YYYY-MM-DD')}T09:00:00+09:00`)
+        const doorTime = moment(`${moment().add(0, 'days').format('YYYY-MM-DD')}T09:00:00+09:00`)
             .add(delay, 'minutes').toDate();
         const startDate = moment(doorTime).add(10, 'minutes').toDate();
         const endDate = moment(startDate).add(duration, 'minutes').toDate();
+        const offers = {
+            typeOf: 'Offer',
+            priceCurrency: chevre.factory.priceCurrency.JPY,
+            availabilityEnds: endDate,
+            availabilityStarts: moment(startDate).add(-7, 'days').toDate(),
+            validFrom: moment(startDate).add(-3, 'days').toDate(),
+            validThrough: endDate,
+            eligibleQuantity: {
+                value: 4,
+                unitCode: chevre.factory.unitCode.C62,
+                typeOf: 'QuantitativeValue'
+            }
+        };
         const eventAttributes = {
             typeOf: chevre.factory.eventType.ScreeningEvent,
             name: eventSeries.name,
@@ -54,7 +67,8 @@ function main() {
             },
             workPerformed: eventSeries.workPerformed,
             superEvent: eventSeries,
-            ticketTypeGroup: ticketTypeGroup.id
+            ticketTypeGroup: ticketTypeGroup.id,
+            offers: offers
         };
         yield eventRepo.saveScreeningEvent({ attributes: eventAttributes });
     });
