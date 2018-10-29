@@ -28,7 +28,7 @@ async function main() {
     const ticketTypeGroup = ticketTypeGroups[Math.floor(Math.random() * ticketTypeGroups.length)];
     const duration = Math.floor((Math.random() * 90) + 90);
     const delay = Math.floor(Math.random() * 780);
-    const doorTime = moment(`${moment().add(0, 'days').format('YYYY-MM-DD')}T09:00:00+09:00`)
+    const doorTime = moment(`${moment().add(Math.floor(Math.random() * 7), 'days').format('YYYY-MM-DD')}T09:00:00+09:00`)
         .add(delay, 'minutes').toDate();
     const startDate = moment(doorTime).add(10, 'minutes').toDate();
     const endDate = moment(startDate).add(duration, 'minutes').toDate();
