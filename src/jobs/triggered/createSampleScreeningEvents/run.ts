@@ -61,7 +61,9 @@ async function main() {
         workPerformed: eventSeries.workPerformed,
         superEvent: eventSeries,
         ticketTypeGroup: ticketTypeGroup.id,
-        offers: offers
+        offers: offers,
+        checkInCount: 0,
+        attendeeCount: 0
     };
     await eventRepo.saveScreeningEvent({ attributes: eventAttributes });
 }
