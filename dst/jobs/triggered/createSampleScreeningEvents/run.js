@@ -30,6 +30,7 @@ function main() {
         const movieTheater = yield placeRepo.findMovieTheaterByBranchCode(eventSeries.location.branchCode);
         const screeningRooms = movieTheater.containsPlace;
         const screeningRoom = screeningRooms[Math.floor(Math.random() * screeningRooms.length)];
+        const maximumAttendeeCapacity = screeningRoom.containsPlace.reduce((a, b) => a + b.containsPlace.length, 0);
         const ticketTypeGroups = yield ticketTypeRepo.searchTicketTypeGroups({});
         // 券種グループをランダム選定
         const ticketTypeGroup = ticketTypeGroups[Math.floor(Math.random() * ticketTypeGroups.length)];
@@ -69,6 +70,8 @@ function main() {
             superEvent: eventSeries,
             ticketTypeGroup: ticketTypeGroup.id,
             offers: offers,
+            maximumAttendeeCapacity: maximumAttendeeCapacity,
+            remainingAttendeeCapacity: maximumAttendeeCapacity,
             checkInCount: 0,
             attendeeCount: 0
         };
